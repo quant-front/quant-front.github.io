@@ -1,0 +1,56 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+.container .bg-layer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%) translateX(-2%);
+  transform: translateY(-50%) translateX(-2%);
+  height: 100%;
+  /* our sprite is composed of 25 frames */
+  width: 2500%;
+  background: url(../img/ink.png) no-repeat 0 0;
+  background-size: 100% 100%;
+  animation-fill-mode: forwards;
+  display: grid;
+  align-items: center; }
+
+.main {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: auto; }
+
+.btn {
+  background-color: #00afd8;
+  cursor: pointer;
+  width: 149px;
+  height: 46px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 23px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  font-family: "roboto", serif;
+  z-index: 3; }
+
+@keyframes cd-sequence {
+  0% {
+    transform: translateY(-50%) translateX(-2%); }
+  100% {
+    transform: translateY(-50%) translateX(-98%); } }
+@keyframes cd-sequence-reverse {
+  0% {
+    transform: translateY(-50%) translateX(-98%); }
+  100% {
+    transform: translateY(-50%) translateX(-2%); } }
