@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+      <meta http-equiv="content-language" content="en-us">
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta property="og:locale" content="en_US"/>
+      <meta property="og:type" content="website"/>
+      <meta property="og:url" content=""/>
+      <meta property="og:site_name" content=""/>
+      <meta property="og:description" content=""/>
+      <meta property="og:title" content="" />
+      <meta name="description" content="" />
+      <meta name="keywords" content="">
+      <meta name="robots" content="index, follow, noydir">
+      <meta name="format-detection" content="telephone=no">
+      <link rel="canonical" href="https://www.">
+      <title> </title> 
+	<!-- Header CSS (First Sections of Website: compress & paste after release from _header.css here) -->
+	<style></style>
+
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+     
+</head>
+
+<body>
+  <header>
+
+  </header>
+  <section class="main">
+        <div class="nav-wrapper">
+            <nav>
+                <a href="" class="hover-this"><span>first</span></a>
+                <a href="" class="hover-this"><span>second</span></a>
+                <a href="" class="hover-this"><span>third</span></a>
+                <a href="" class="hover-this"><span>fourth</span></a>
+                <div class="cursor"></div>
+            </nav>
+        </div>
+  </section>
+
+
+
+	<!-- This write code -->
+	<div class="hidden"></div>
+
+	<!-- Load CSS -->
+    <link rel="stylesheet"  href="css/normalize.css" />
+	<link rel="stylesheet"  href="css/fonts.css" />
+	<link rel="stylesheet"  href="css/header.css" />
+	<link rel="stylesheet"  href="css/main.css" />
+	<link rel="stylesheet"  href="css/footer.css" />
+	<!-- Load Scripts -->
+    <script src="js/main.js"></script>
+    <script src="libs/ScrollMagic.min.js"></script>
+    <script src="libs/debug.addIndicators.min.js"></script>
+    <script src="libs/anime.min.js"></script>
+    <script src="js/animation.anime.min.js"></script>
+    <script src="js/plugins.js"></script>
+  <script>
+       (function () {
+            const link = document.querySelectorAll('.hover-this');
+            const cursor = document.querySelector('.cursor');
+
+            const animateit = function (e) {
+               const  span = this.querySelector('span');
+               const { offsetX:x, offsetY:y } = e,
+                    {offsetWidth:width, offsetHeight: height } = this,
+                    move = 25,
+                    xMove = x / width * (move * 2 ) - move,
+                    yMove = y / height * (move * 2 ) - move;
+
+               span.style.transform = `translate(${xMove}px,${yMove}px)`;
+
+           if( e.type === 'mouseleave') span.style.transform = '';
+
+            };
+
+            const  editCursor = e => {
+                 const { clientX: x, clientY: y } = e;
+                 cursor.style.left = x + 'px';
+                 cursor.style.top = y + 'px';
+            };
+            //
+            link.forEach(b => b.addEventListener('mousemove', animateit));
+            link.forEach(b => b.addEventListener('mouseleave', animateit));
+            window.addEventListener('mousemove', editCursor);
+
+       })();
+  </script>
+
+</body>
+</html>
