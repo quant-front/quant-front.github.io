@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Roboto";
+  src: url('../fonts/Roboto/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Lato";
+  src: url('../fonts/Lato/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "montserrat";
+  font-display: fallback;
+  src: local("montserrat"), url(Montserrat-Regular.woff2) format('woff2');
+}
