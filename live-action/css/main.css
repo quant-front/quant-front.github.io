@@ -83,7 +83,10 @@ section {
     background-color: #61fd7c;
     width: 30px;
     height: 30px;
-    border-radius: 50%; }
+    border-radius: 50%;
+    font-family: Lato, serif;
+    font-size: 26px;
+    color: white; }
   .item .square {
     width: 30px;
     height: 30px;
@@ -101,6 +104,10 @@ section {
   height: 40px !important; }
 
 .action-7 {
-  background-color: #6efeee !important;
+  background-color: transparent !important;
   width: 40px !important;
-  height: 40px !important; }
+  height: 40px !important;
+  font-family: Lato, serif;
+  font-size: 36px;
+  color: white;
+  font-weight: 700; }
