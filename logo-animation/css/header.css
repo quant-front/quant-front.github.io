@@ -1,0 +1,128 @@
+:root {
+  --main-color: #ff6f69;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*::-webkit-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*:-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*::-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*:-ms-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+  color: #666;
+}
+
+body input:required:valid,
+body textarea:required:valid {
+  color: #666;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background-color: #fff;
+  color: #fff;
+}
+
+a, a:hover, a:focus, a:active {
+  outline: none !important;
+  text-decoration: none;
+  color: #000;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+section img {
+  position: absolute;
+  left: -70px;
+  top: 150px;
+}
+section svg {
+  width: 150%;
+}
+section .logo {
+  width: 800px;
+  position: relative;
+}
+
+/* Letters effect*/
+.letters {
+  position: relative;
+  top: -91px;
+  right: -35px;
+}
+
+/* Letter path */
+.letter__layer {
+  fill: none;
+  stroke-miterlimit: 3;
+  stroke-linecap: butt;
+  stroke-linejoin: bevel;
+}
+
+.letters--effect .letter__layer:first-child {
+  /*stroke: #00ffff;*/
+  stroke: #00afd8;
+  stroke-width: 4px;
+}
+
+.letters--effect .letter__layer:nth-child(2) {
+  stroke: #000;
+  stroke-width: 13px;
+}
+
+.letters--effect .letter__layer:nth-child(3) {
+  stroke: #00afd8;
+  stroke-width: 14px;
+}
+
+.color--tq .letter__layer {
+  stroke-width: 10px !important;
+}
