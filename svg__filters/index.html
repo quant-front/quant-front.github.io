@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+      <meta http-equiv="content-language" content="en-us">
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta property="og:locale" content="en_US"/>
+      <meta property="og:type" content="website"/>
+      <meta property="og:url" content=""/>
+      <meta property="og:site_name" content=""/>
+      <meta property="og:description" content=""/>
+      <meta property="og:title" content="" />
+      <meta name="description" content="" />
+      <meta name="keywords" content="">
+      <meta name="robots" content="index, follow, noydir">
+      <meta name="format-detection" content="telephone=no">
+      <link rel="canonical" href="https://www.">
+      <title> </title> 
+	<!-- Header CSS (First Sections of Website: compress & paste after release from _header.css here) -->
+	<style></style>
+
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+     
+</head>
+
+<body>
+  <section class="main">
+      <div class="main__article">
+          <p>Hover</p>
+      </div>
+
+      <svg>
+          <filter id="wave">
+              <feTurbulence x="0" y="0"  baseFrequency="0.02" numOctaves="5" seed="2">  <animate attributeName="baseFrequency" dur="120s" values="0.02;0.05;0.02" repeatCount="indefinite"></animate></feTurbulence>
+              <fedisplacementmap in="SourceGraphic" scale="30"></fedisplacementmap>
+          </filter>
+          <filter id="filter-2">
+              <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="20" result="warp"></feTurbulence>
+              <feOffset dx="-10" result="warpOffset"></feOffset>
+              <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="40" in="SourceGraphic" in2="warpOffset"></feDisplacementMap>
+          </filter>
+          <filter id="filter-3">
+              <feTurbulence type="fractalNoise" baseFrequency="0 0.4" numOctaves="5" result="warp" seed="0"></feTurbulence>
+              <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="10" in="SourceGraphic" in2="warp"></feDisplacementMap>
+          </filter>
+          <filter id="filter-4">
+              <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="50" result="warp"></feTurbulence>
+              <feOffset dx="-20" result="warpOffset"></feOffset>
+              <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="35" in="SourceGraphic" in2="warpOffset"></feDisplacementMap>
+          </filter>
+          <filter id="filter-5">
+              <feTurbulence type="fractalNoise" baseFrequency="0.01 " numOctaves="50" result="warp"></feTurbulence>
+              <feOffset dx="-90" result="warpOffset"></feOffset>
+              <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="1" in="SourceGraphic" in2="warp"></feDisplacementMap>
+          </filter>
+          <filter id="filter-6">
+              <feTurbulence type="fractalNoise" baseFrequency="0.01 0.07" numOctaves="5" seed="2" result="noise"></feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="warp" scale="0" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
+          </filter>
+          <filter id="filter-7">
+              <feTurbulence type="fractalNoise" baseFrequency="0" numOctaves="5" result="warp"></feTurbulence>
+              <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="90" in="SourceGraphic" in2="warp"></feDisplacementMap>
+          </filter>
+      </svg>
+
+  </section>
+
+  <section class="image-hover">
+     <div class="grid-container">
+         <div class="grid-content">
+             <div class="item-1"><img src="img/1.jpg" alt=""></div>
+             <div class="item-2"><img src="img/2.jpg" alt=""></div>
+             <div class="item-3"><img src="img/3.jpg" alt=""></div>
+             <div class="item-4"><img src="img/4.jpg" alt=""></div>
+             <div class="item-5"><img src="img/5.jpg" alt=""></div>
+             <div class="item-6"><img src="img/6.jpg" alt=""></div>
+         </div>
+     </div>
+  </section>
+
+
+	<!-- This write code -->
+	<div class="hidden"></div>
+
+	<!-- Load CSS -->
+    <link rel="stylesheet"  href="css/normalize.css" />
+	<link rel="stylesheet"  href="css/fonts.css" />
+	<link rel="stylesheet"  href="css/header.css" />
+	<link rel="stylesheet"  href="css/main.css" />
+	<link rel="stylesheet"  href="css/footer.css" />
+	<!-- Load Scripts -->
+    <script src="libs/anime.min.js"></script>
+    <script src="js/plugins.js"></script>
+</body>
+</html>
