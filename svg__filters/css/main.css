@@ -1,0 +1,145 @@
+:root {
+  --main-color: #ff6f69;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*::-webkit-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*:-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*::-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*:-ms-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+  color: #666;
+}
+
+body input:required:valid,
+body textarea:required:valid {
+  color: #666;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background-color: #fff;
+  color: #fff;
+}
+
+a, a:hover, a:focus, a:active {
+  outline: none !important;
+  text-decoration: none;
+  color: #000;
+}
+
+.grid-container {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*min-height:32vh;*/
+.main {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.main p {
+  font-family: "Lato", serif;
+  font-size: 26vw;
+  text-transform: capitalize;
+  margin: 0;
+  line-height: 1.15;
+}
+.main .main__article {
+  filter: url(#wave);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.image-hover {
+  padding: 20px;
+  width: 100%;
+}
+.image-hover .grid-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  grid-gap: 20px;
+}
+.image-hover .grid-content img {
+  width: 100%;
+}
+.image-hover .grid-content .item-1 {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.image-hover .grid-content .item-2 {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.image-hover .grid-content .item-2 img {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.image-hover .grid-content .item-3 {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.image-hover .grid-content .item-4 {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.image-hover .grid-content .item-5 {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transition: all 0.5s ease;
+}
+.image-hover .grid-content .item-6 {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transition: all 0.5s ease;
+}
