@@ -34,7 +34,7 @@ window.addEventListener('resize', function () {
 
 
 let loader = new  THREE.TextureLoader();
-loader.load("../img/smoke-1.png", function (texture) {
+loader.load("img/smoke-1.png", function (texture) {
    cloudGeo = new THREE.PlaneBufferGeometry(500,500);
    cloudMaterial = new  THREE.MeshLambertMaterial({
         map:texture,
