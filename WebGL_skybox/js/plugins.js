@@ -26,12 +26,12 @@ controls.maxDistance = 1500;
 
 let materialArray = [];
 
-let texture_ft = new THREE.TextureLoader().load('../img/sky/arid_ft.jpg');
-let texture_bk = new THREE.TextureLoader().load('../img/sky/arid_bk.jpg');
-let texture_up = new THREE.TextureLoader().load('../assets/img/sky/arid_up.jpg');
-let texture_dn = new THREE.TextureLoader().load('../assets/img/sky/arid_dn.jpg');
-let texture_rt = new THREE.TextureLoader().load('../assets/img/sky/arid_rt.jpg');
-let texture_lf = new THREE.TextureLoader().load('../assets/img/sky/arid_lf.jpg');
+let texture_ft = new THREE.TextureLoader().load('img/sky/arid_ft.jpg');
+let texture_bk = new THREE.TextureLoader().load('img/sky/arid_bk.jpg');
+let texture_up = new THREE.TextureLoader().load('img/sky/arid_up.jpg');
+let texture_dn = new THREE.TextureLoader().load('img/sky/arid_dn.jpg');
+let texture_rt = new THREE.TextureLoader().load('img/sky/arid_rt.jpg');
+let texture_lf = new THREE.TextureLoader().load('img/sky/arid_lf.jpg');
 
 materialArray.push(new  THREE.MeshBasicMaterial({map:texture_ft}));
 materialArray.push(new  THREE.MeshBasicMaterial({map:texture_bk}));
