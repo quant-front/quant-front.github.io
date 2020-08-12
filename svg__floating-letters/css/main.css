@@ -85,6 +85,11 @@ section span {
   font-size: 1100px;
   position: absolute;
   color: #17beab;
+    pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 section span:nth-child(0) {
   left: 0;
