@@ -1,0 +1,116 @@
+@import "_var.scss";
+
+
+ .grid-container {
+ 	display: grid;
+ 	max-width:1200px;
+ 	margin:0 auto;
+ } 
+
+
+body,
+html {
+	height:100%;
+}
+
+body {
+	text-align:center;
+	background-color:#212121;
+
+	&:before {
+		content:"";
+		display:inline-block;
+		height:100%;
+		vertical-align:middle;
+	}
+}
+
+@keyframes pulse {
+
+	70% {
+		background-color:lighten(purple, 50);
+	}
+}
+
+.box {
+	-webkit-filter:contrast(30);
+	filter:contrast(30);
+	box-shadow:0 0 100px black;
+	background-color:black;
+	font-size:10em;
+	padding:0.5em;
+	position:relative;
+	color:mix(white, black, 50%);
+	border:2px solid #555;
+
+	width:1em;
+	height:1em;
+	display:inline-block;
+	vertical-align:middle;
+
+	transition:background-color 2s linear;
+
+	&:hover {
+		background-color:lighten(purple, 30);
+		animation:pulse 5s ease-in infinite;
+	}
+
+	&:active {
+		background-color:black;
+		-webkit-filter:contrast(50) invert(1) ;
+		animation:none;
+	}
+}
+
+@keyframes swayx {
+	50% {
+		left:75%;
+	}
+}
+
+@keyframes swayy {
+	50% {
+		top:75%;
+	}
+}
+
+@keyframes color {
+	@for $i from 1 through 7 {
+		#{percentage($i/7)} {
+			background-color:adjust-hue( red, percentage($i/7));
+		}
+	}
+}
+
+.circle {
+	border-radius:50%;
+	height:1em;
+	width:1em;
+	-webkit-filter:blur(25px);
+	filter:blur(25px);
+	position:absolute;
+	background-color:white;
+	margin:auto;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+
+.one {
+	@extend .circle;
+	animation:
+			color 12s linear infinite alternate;
+}
+
+.two {
+	@extend .circle;
+	font-size:0.75em;
+	left:-75%;
+	top:-75%;
+
+	animation:
+			swayx 3s ease-in-out infinite,
+			swayy 3.3s ease-in-out infinite,//apparent chaos
+			color 16s linear infinite alternate-reverse;
+}

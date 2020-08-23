@@ -1,0 +1,115 @@
+:root {
+  --main-color: #ff6f69;
+}
+
+.grid-container {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  text-align: center;
+  background-color: #212121;
+}
+body:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+@keyframes pulse {
+  70% {
+    background-color: #ff80ff;
+  }
+}
+.box {
+  -webkit-filter: contrast(30);
+  filter: contrast(30);
+  box-shadow: 0 0 100px black;
+  background-color: black;
+  font-size: 10em;
+  padding: 0.5em;
+  position: relative;
+  color: gray;
+  border: 2px solid #555;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  transition: background-color 2s linear;
+}
+.box:hover {
+  background-color: #ff1aff;
+  animation: pulse 5s ease-in infinite;
+}
+.box:active {
+  background-color: black;
+  -webkit-filter: contrast(50) invert(1);
+  animation: none;
+}
+
+@keyframes swayx {
+  50% {
+    left: 75%;
+  }
+}
+@keyframes swayy {
+  50% {
+    top: 75%;
+  }
+}
+@keyframes color {
+  14.2857142857% {
+    background-color: #ff3d00;
+  }
+  28.5714285714% {
+    background-color: #ff7900;
+  }
+  42.8571428571% {
+    background-color: #ffb600;
+  }
+  57.1428571429% {
+    background-color: #fff300;
+  }
+  71.4285714286% {
+    background-color: #ceff00;
+  }
+  85.7142857143% {
+    background-color: #92ff00;
+  }
+  100% {
+    background-color: #55ff00;
+  }
+}
+.circle, .two, .one {
+  border-radius: 50%;
+  height: 1em;
+  width: 1em;
+  -webkit-filter: blur(25px);
+  filter: blur(25px);
+  position: absolute;
+  background-color: white;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.one {
+  animation: color 12s linear infinite alternate;
+}
+
+.two {
+  font-size: 0.75em;
+  left: -75%;
+  top: -75%;
+  animation: swayx 3s ease-in-out infinite, swayy 3.3s ease-in-out infinite, color 16s linear infinite alternate-reverse;
+}
