@@ -57,7 +57,7 @@ let texture;
 let controls = new  THREE.OrbitControls(camera,renderer.domElement);
 
 geometry = new THREE.Geometry();
-let sprite = new THREE.TextureLoader().load('../assets/img/starts.png');
+let sprite = new THREE.TextureLoader().load('img/starts.png');
 
 
  imageCoords.forEach((el, index) => {
