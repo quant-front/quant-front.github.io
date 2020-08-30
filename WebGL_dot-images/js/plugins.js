@@ -94,4 +94,4 @@ animate();
 
 }
 
-img.src = '../assets/img/phone.svg'
+img.src = 'img/phone.svg'
