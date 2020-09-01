@@ -10,6 +10,8 @@ renderer.setClearColor(0x000000);
 let doc = document.querySelector('.main');
 doc.appendChild( renderer.domElement );
 
+renderer.sortObjects = true;
+
 
 window.addEventListener('resize', function () {
      let width = window.innerWidth;
@@ -45,27 +47,32 @@ const material = new  THREE.MeshBasicMaterial({
      transparent: true,
      side: THREE.FrontSide,
      flatShading:true,
-     map:cavasTexture
+     map:cavasTexture,
+     cavasTexture,
 });
 const material1 = new  THREE.MeshBasicMaterial({
      // map:new  THREE.TextureLoader().load('../assets/img/1.jpg')
      transparent: true,
      side: THREE.BackSide,
-     color:0x000000,
+     color:0xFFFFFFF,
      flatShading:true,
-     map:cavasTexture
+     map:cavasTexture,
+     alphaMap:cavasTexture,
 });
 
 
 const mesh = new THREE.Mesh(geometry,material);
 const mesh1 = new THREE.Mesh(geometry,material1);
 mesh.position.z = -0.01;
+
+mesh.renderOrder = 2;
+mesh1.renderOrder = 1;
 scene.add(mesh);
 scene.add(mesh1);
 
 const geometry1 = new THREE.SphereGeometry( 3,25,25 );
 const material2 = new  THREE.MeshLambertMaterial({
-     map:new  THREE.TextureLoader().load('../assets/img/2.jpg')
+     map:new  THREE.TextureLoader().load('img/2.jpg')
 });
 const mesh2 = new THREE.Mesh(geometry1,material2);
 mesh2.scale.set(0.9,0.9,0.9);
