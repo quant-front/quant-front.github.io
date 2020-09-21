@@ -12,3 +12,19 @@ for (i = 0; i < acc.length; i++) {
           }
      });
 }
+
+
+(function () {
+     const btns = document.getElementsByClassName("unit");
+
+     for (let i = 0; i < btns.length; i++) {
+
+          btns[i].addEventListener("click", function() {
+               let current = document.getElementsByClassName("active-s");
+               if (current.length > 0) {
+                    current[0].className = current[0].className.replace("active-s", "");
+               }
+               this.className += " active-s";
+          });
+     }
+})();
