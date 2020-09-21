@@ -181,7 +181,7 @@ body {
 }
 
 .accordion {
-  background-color: #eee;
+  background-color: #c3c3c3;
   color: #444;
   cursor: pointer;
   padding: 18px;
@@ -194,8 +194,8 @@ body {
   font-family: "montserrat", serif;
 }
 
-.active, .accordion:hover {
-  background-color: #ccc;
+.active-s {
+  background: #ff6e6e;
 }
 
 .panel {
