@@ -1,0 +1,199 @@
+:root {
+  --main-color: #ff6f69;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*::-webkit-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*:-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*::-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*:-ms-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+  color: #666;
+}
+
+body input:required:valid,
+body textarea:required:valid {
+  color: #666;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background-color: #fff;
+  color: #fff;
+}
+
+a, a:hover, a:focus, a:active {
+  outline: none !important;
+  text-decoration: none;
+  color: #000;
+}
+
+.grid-container {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*min-height:32vh;*/
+section {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.marquee .inner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  color: black;
+  font-size: 22vw;
+  height: 800px;
+}
+
+.marquee .inner > * {
+  white-space: nowrap;
+  padding: 0 4rem;
+  margin: 0;
+}
+
+.coaster {
+  background-color: #18181c;
+}
+.coaster h1 {
+  font-family: "Nova Mono", monospace;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  width: 1109px;
+  height: 365px;
+  color: turquoise;
+}
+.coaster .char {
+  offset-path: path("M.2 219.6c247-107 233.3 91.4 406.4 138.4C659.2 426.6 750.2 6.6 552.2.6 337.7-5.9 426.9 415 696.1 359.4c256.1-52.9 182.1-217.9 413.1-163.9");
+  offset-distance: calc(var(--char-index) * 1.5rem);
+  position: absolute;
+  animation: loop 3500ms linear infinite alternate calc(var(--char-index) * 10ms);
+}
+@keyframes loop {
+  50% {
+    offset-distance: calc((var(--char-index) * 2.5rem) + 700px);
+    color: hotpink;
+  }
+  100% {
+    offset-distance: calc((var(--char-index) * 1.5rem) + 1690px);
+  }
+}
+
+.comparing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: coral;
+}
+.comparing h2 {
+  font-family: Inconsolata, monospace;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  width: 515px;
+  height: 168px;
+}
+.comparing .char {
+  --i: calc(50% / var(--char-total));
+  offset-path: path("M.4 84.1s127.4 188 267.7 0 247.3 0 247.3 0");
+  offset-distance: calc(var(--char-index) * 2rem);
+  position: absolute;
+  animation: move 1500ms infinite alternate forwards var(--delay, 0ms);
+}
+.comparing h2:nth-child(2) {
+  color: aquamarine;
+}
+.comparing h2:nth-child(2) .char {
+  --delay: calc(var(--char-index) * 30ms);
+}
+@keyframes move {
+  100% {
+    --i: 2rem;
+    offset-distance: calc((var(--char-index) * 2rem) + 12rem);
+  }
+}
+
+.split-motion {
+  background-color: #18181c;
+}
+.split-motion h1 {
+  font-family: "Nova Mono", monospace;
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  width: 1096px;
+  height: 365px;
+  color: goldenrod;
+  perspective: 900px;
+}
+.split-motion .char {
+  offset-path: path("M.5 122.7s24.7-275 276.9 0c327.1 356.7 266.1-330.3 548-33.3 256.9 270.7 271.1 0 271.1 0");
+  offset-distance: calc(var(--char-index) * 1.75rem);
+  position: absolute;
+  animation: wave 2200ms cubic-bezier(0.62, 0.01, 0.42, 1.01) infinite alternate calc(var(--char-index) * 20ms), wave2 2200ms cubic-bezier(0.62, 0.01, 0.42, 1.01) infinite alternate calc(var(--char-index) * 20ms);
+  transform: perspective(800px) scale(1) rotate3d(0, 0, 0, 0);
+}
+@keyframes wave {
+  100% {
+    offset-distance: calc((var(--char-index) * 3rem) + 300px);
+    transform: perspective(800px) scale(1.25) rotate3d(1, 0, 0, 180deg);
+    color: red;
+  }
+}
+@keyframes wave2 {
+  100% {
+    offset-distance: calc((var(--char-index) * 3.45rem) + 600px);
+    transform: perspective(800px) scale(1.75) rotate3d(1, 0, 0, 360deg);
+    color: goldenrod;
+  }
+}
