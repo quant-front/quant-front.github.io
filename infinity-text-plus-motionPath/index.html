@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta http-equiv="content-language" content="en-us">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta property="og:title" content=""/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow, noydir">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="https://www.">
+    <title></title>
+    <!-- Header CSS (First Sections of Website: compress & paste after release from _header.css here) -->
+    <style></style>
+
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+</head>
+
+<body>
+<section class="main">
+    <div class="marquee">
+        <div class="inner">
+            <p>Hello world of humans.</p>
+        </div>
+    </div>
+</section>
+<section class="coaster">
+    <h1 data-splitting>Can’t stop looping</h1>
+</section>
+
+<section class="split-motion">
+    <h1 data-splitting>Just hanging out</h1>
+</section>
+
+<section class="comparing">
+    <h2 data-splitting>I am animating</h2>
+    <h2 data-splitting>I am animating</h2>
+</section>
+<!-- Load CSS -->
+<link rel="stylesheet" href="css/normalize.css"/>
+<link rel="stylesheet" href="css/fonts.css"/>
+<link rel="stylesheet" href="css/main.css"/>
+<!-- Load Scripts -->
+<script src='https://unpkg.com/splitting@1.0.6/dist/splitting.min.js'></script>
+<script src="js/plugins.js"></script>
+<script>
+     function handleMarquee() {
+          const marquee = document.querySelectorAll('.marquee');
+          let speed = 4;
+          let lastScrollPos = 0;
+          let timer;
+          marquee.forEach(function (el) {
+               const container = el.querySelector('.inner');
+               const content = el.querySelector('.inner > *');
+               //Get total width
+               const elWidth = content.offsetWidth;
+               //Duplicate content
+               let clone = content.cloneNode(true);
+               container.appendChild(clone);
+               let progress = 1;
+
+               function loop() {
+                    progress = progress - speed;
+                    if (progress <= elWidth * -1) {
+                         progress = 0;
+                    }
+                    container.style.transform = 'translateX(' + progress + 'px)';
+                    container.style.transform += 'skewX(' + speed * 0.4 + 'deg)';
+                    window.requestAnimationFrame(loop);
+               }
+
+               loop();
+          });
+          window.addEventListener('scroll', function () {
+               const maxScrollValue = 12;
+               const newScrollPos = window.scrollY;
+               let scrollValue = newScrollPos - lastScrollPos;
+               if (scrollValue > maxScrollValue) scrollValue = maxScrollValue;
+               else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue;
+               speed = scrollValue;
+               clearTimeout(timer);
+               timer = setTimeout(handleSpeedClear, 10);
+          });
+
+          function handleSpeedClear() {
+               speed = 4;
+          }
+     };
+     handleMarquee();
+</script>
+</body>
+</html>
