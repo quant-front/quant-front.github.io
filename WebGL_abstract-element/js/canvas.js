@@ -51,7 +51,9 @@ function draw(){
                ctx.strokeStyle = 'black';
           }
           else if(j  % 3 === 0){
-               ctx.strokeStyle = 'red';
+               const color = ['#1F53BB','#6FBB1F','#9F1FBB','#BB3E1F'];
+               const  bg = color[Math.floor(Math.random()* color.length)];
+               ctx.strokeStyle = bg;
           }
           // if (window.innerWidth >= 500) {
                for (let i = 0; i < 30; i++) {
