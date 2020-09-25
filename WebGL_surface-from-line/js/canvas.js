@@ -43,9 +43,18 @@ function draw(){
 
      for (let j = 0; j <80 ; j++) {
           ctx.beginPath();
-          for (let i = 0; i < 60; i++) {
-               ctx.fillStyle = "#3498DB";
-               ctx.lineTo(i*60,j*10+ 100*Perlin(400*i/innerWidth,j/10,time/100));
+          if (window.innerWidth >= 500) {
+               for (let i = 0; i < 60; i++) {
+                    ctx.fillStyle = "#3498DB";
+                    ctx.lineTo(i*60,j*10+ 100*Perlin(400*i/innerWidth,j/10,time/100));
+               }
+          }
+
+          if (window.innerWidth <= 500) {
+               for (let i = 0; i < 30; i++) {
+                    ctx.fillStyle = "#3498DB";
+                    ctx.lineTo(i*30,j*10+ 100*Perlin(60*i/innerWidth,j/10,time/100));
+               }
           }
           ctx.stroke();
      }
