@@ -87,17 +87,17 @@ mesh.rotation.y = 2.5;
 
 
 camera.position.z = 70;
-const stats = new Stats();
-stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
-document.body.appendChild( stats.dom );
+// const stats = new Stats();
+// stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
+// document.body.appendChild( stats.dom );
 
 let time = 0;
 const animate = function () {
      time = time+0.05;
      material.uniforms.time.value = time;
      requestAnimationFrame( animate );
-     stats.begin();
-     stats.end();
+     // stats.begin();
+     // stats.end();
      // mesh.rotation.z += 0.001;
      renderer.render( scene, camera );
 };
