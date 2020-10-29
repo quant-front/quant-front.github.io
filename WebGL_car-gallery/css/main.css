@@ -1,0 +1,144 @@
+:root {
+  --main-color: #ff6f69;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*::-webkit-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*:-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*::-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+*:-ms-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+  color: #666;
+}
+
+body input:required:valid,
+body textarea:required:valid {
+  color: #666;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background-color: transparent;
+  color: #fff;
+}
+
+a, a:hover, a:focus, a:active {
+  outline: none !important;
+  text-decoration: none;
+  color: #000;
+}
+
+.grid-container {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*min-height:32vh;*/
+section {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+section .button__panels {
+  position: absolute;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  grid-gap: 50px;
+  pointer-events: none;
+}
+section .button__panels .btn--left {
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  background-color: slateblue;
+  margin-bottom: 100px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+section .button__panels .btn--right {
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  background-color: slateblue;
+  margin-bottom: 100px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+section .button__panels .btn--rightR {
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  background-color: slateblue;
+  margin-bottom: 100px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.template-canvas {
+  background: red;
+  width: 100%;
+  height: 100%;
+}
+
+.sample-canvas {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background: slateblue;
+}
