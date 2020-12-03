@@ -1,0 +1,392 @@
+:root {
+  --grey-color: #D7E3E7;
+  --orange-color: #F09E3E;
+  --green-color: #A3CCAE;
+  --gutter:20px;
+}
+
+.cursor--pink {
+  position: fixed;
+  pointer-events: none;
+  width: 0.4rem;
+  height: 0.4rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/cursor/yellow.svg);
+  padding: 7px;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s linear;
+  border-radius: 100%;
+  left: -100px;
+  z-index: 10;
+}
+.cursor--pink img {
+  width: 220%;
+}
+
+.cursor--green {
+  position: fixed;
+  pointer-events: none;
+  width: 0.4rem;
+  height: 0.4rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/cursor/green.svg);
+  padding: 7px;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s linear;
+  border-radius: 100%;
+  left: -100px;
+  z-index: 10;
+}
+.cursor--green img {
+  width: 220%;
+}
+
+.cursor--gray {
+  position: fixed;
+  pointer-events: none;
+  width: 0.4rem;
+  height: 0.4rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../img/cursor/grey.svg);
+  padding: 7px;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s linear;
+  border-radius: 100%;
+  left: -100px;
+  z-index: 10;
+}
+.cursor--gray img {
+  width: 220%;
+}
+
+.lazy {
+  display: none;
+}
+
+.check-out {
+  width: 100%;
+  min-height: calc(100vh - 488px);
+}
+.check-out__container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.check-out__container .check-out__content {
+  padding-top: 100px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 100px;
+}
+.check-out__container .check-out__content .content__details .details__title h1 {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 41px;
+  line-height: 114.2%;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+.check-out__container .check-out__content .content__details .details__content .process__details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.check-out__container .check-out__content .content__details .details__content .process__details .process__item .item__number {
+  width: 52px;
+  height: 52px;
+  background-color: #A3CCAE;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 155%;
+  letter-spacing: -0.02em;
+  font-size: 21px;
+  font-weight: 500;
+}
+.check-out__container .check-out__content .content__details .details__content .process__details .process__item .item__text {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 155%;
+  letter-spacing: -0.02em;
+  font-size: 27px;
+  font-weight: 500;
+}
+.check-out__container .check-out__content .content__details .details__content .process__details .process__item:nth-child(1) {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+}
+.check-out__container .check-out__content .content__details .details__content .process__details .process__item:nth-child(2) {
+  display: grid;
+  justify-self: end;
+}
+.check-out__container .check-out__content .content__details .details__content .process__delivery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 30px;
+}
+.check-out__container .check-out__content .content__details .details__content .process__delivery .process__item .item__number {
+  width: 52px;
+  height: 52px;
+  background-color: #A3CCAE;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 155%;
+  letter-spacing: -0.02em;
+  font-size: 21px;
+  font-weight: 500;
+}
+.check-out__container .check-out__content .content__details .details__content .process__delivery .process__item .item__text {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 155%;
+  letter-spacing: -0.02em;
+  font-size: 27px;
+  font-weight: 500;
+}
+.check-out__container .check-out__content .content__details .details__content .process__delivery .process__item:nth-child(1) {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+}
+.check-out__container .check-out__content .content__details .details__content .process__delivery .process__item:nth-child(2) {
+  display: grid;
+  justify-self: end;
+}
+.check-out__container .check-out__content .content__details .panel-delivery {
+  width: 407px;
+}
+.check-out__container .check-out__content .content__details .panel-delivery .select-items div, .check-out__container .check-out__content .content__details .panel-delivery .select-selected {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+  padding: 6px 6px;
+  border: none;
+  border-bottom: 1px solid #D7E3E7;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0;
+  height: 55px;
+  display: grid;
+  align-items: center;
+}
+.check-out__container .check-out__content .content__details .panel-delivery .custom-select {
+  height: 55px;
+  display: grid;
+  align-items: center;
+}
+.check-out__container .check-out__content .content__details .panel-details {
+  margin: 10px 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.check-out__container .check-out__content .content__details .panel-details form {
+  width: 407px;
+}
+.check-out__container .check-out__content .content__details .panel-details form label {
+  display: block;
+  padding-bottom: 10px;
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+  color: #1C1A1A;
+  font-size: 15px;
+}
+.check-out__container .check-out__content .content__details .panel-details form input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #D7E3E7;
+  padding: 20px 0;
+  margin-bottom: 10px;
+}
+.check-out__container .check-out__content .content__details .panel-details form input[type=text] {
+  padding-left: 20px;
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+  color: #8C8989;
+  font-size: 15px;
+}
+.check-out__container .check-out__content .content__details .panel-details form .phone__description {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+  color: #8C8989;
+}
+.check-out__container .check-out__content .content__details .panel-details form .process__details--btn {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  outline: none;
+  border: none;
+  margin-top: 10px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.check-out__container .check-out__content .content__order {
+  border: 1px solid #F4FAFD;
+  padding: 0 10px;
+}
+.check-out__container .check-out__content .content__order .order__title {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 155%;
+  letter-spacing: -0.02em;
+  font-size: 27px;
+  font-weight: 500;
+  text-align: center;
+}
+.check-out__container .check-out__content .content__order .order__card {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #F4FAFD;
+}
+.check-out__container .check-out__content .content__order .order__card .card__image {
+  display: block;
+}
+.check-out__container .check-out__content .content__order .order__card .card__details .card__description {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+}
+.check-out__container .check-out__content .content__order .order__card .card__details .card__price {
+  padding-top: 10px;
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+  font-size: 16px;
+  font-weight: 500;
+}
+.check-out__container .check-out__content .content__order .order__footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 15px 0;
+  align-items: center;
+}
+.check-out__container .check-out__content .content__order .order__footer .count__product {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+  font-size: 12px;
+}
+.check-out__container .check-out__content .content__order .order__footer .count__price {
+  font-family: Gotham Pro, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 144.7%;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: end;
+}
+
+.container {
+  width: 50px;
+  height: 35px;
+  display: grid;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 2px;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 7px;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid #D7E3E7;
+}
+
+/* On mouse-over, add a grey background color */
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  border: 1px solid #D7E3E7;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: black;
+}
