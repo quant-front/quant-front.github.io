@@ -47,7 +47,7 @@ const material = new  THREE.MeshLambertMaterial({
      color:0xFF5733,
 });
 const mesh = new THREE.Mesh(geometry,material);
-scene.add(mesh);
+// scene.add(mesh);
 var  group = new THREE.Object3D();
 for (let row = 0; row <20 ; row++) {
      let yPos = row * (height+0.05);
