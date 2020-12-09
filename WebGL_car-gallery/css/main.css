@@ -96,7 +96,7 @@ section .button__panels {
 }
 section .button__panels .wrapper {
   width: 100%;
-  height: 140px;
+  height: 100px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-bottom: 50px;
