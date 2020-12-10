@@ -49,7 +49,7 @@ btn2.addEventListener('click', function () {
 });
 
 let loader = new THREE.GLTFLoader();
-loader.load('../assets/img/nissan/scene.gltf', handle_load);
+loader.load('img/nissan/scene.gltf', handle_load);
 
 let car;
 
