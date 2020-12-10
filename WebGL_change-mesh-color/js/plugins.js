@@ -45,7 +45,7 @@ btn2.addEventListener('click', function () {
           clipShadows: true,
           side: THREE.DoubleSide
      });
-     loader.load('../assets/img/nissan/scene.gltf', handle_load);
+     loader.load('img/nissan/scene.gltf', handle_load);
 });
 
 let loader = new THREE.GLTFLoader();
