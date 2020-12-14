@@ -1,0 +1,492 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.2.75",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                8,
+                9,
+                10
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "defaultMaterial.001"
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "polySurface3"
+        },
+        {
+            "mesh" : 1,
+            "name" : "defaultMaterial.002"
+        },
+        {
+            "children" : [
+                2
+            ],
+            "name" : "RollerCoasterCart:RollerCoasterCart:polySurface76_f_4_"
+        },
+        {
+            "mesh" : 2,
+            "name" : "defaultMaterial"
+        },
+        {
+            "children" : [
+                4
+            ],
+            "name" : "transform47"
+        },
+        {
+            "children" : [
+                1,
+                3,
+                5
+            ],
+            "name" : "Collada visual scene group",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ]
+        },
+        {
+            "children" : [
+                6
+            ],
+            "name" : "RootNode (model correction matrix)"
+        },
+        {
+            "children" : [
+                7
+            ],
+            "name" : "RootNode (gltf orientation matrix)",
+            "rotation" : [
+                -0.5001639127731323,
+                -0.4998360872268677,
+                -0.4998360872268677,
+                0.5001639127731323
+            ]
+        },
+        {
+            "name" : "Light",
+            "rotation" : [
+                0.16907575726509094,
+                0.7558803558349609,
+                -0.27217137813568115,
+                0.570947527885437
+            ],
+            "translation" : [
+                4.076245307922363,
+                5.903861999511719,
+                -1.0054539442062378
+            ]
+        },
+        {
+            "name" : "Camera",
+            "rotation" : [
+                0.483536034822464,
+                0.33687159419059753,
+                -0.20870360732078552,
+                0.7804827094078064
+            ],
+            "translation" : [
+                7.358891487121582,
+                4.958309173583984,
+                6.925790786743164
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "name" : "RollerCoasterCart_blinn1SG1",
+            "normalTexture" : {
+                "index" : 0,
+                "texCoord" : 0
+            },
+            "occlusionTexture" : {
+                "index" : 1,
+                "texCoord" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 2,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 1,
+                    "texCoord" : 0
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                1,
+                1,
+                1
+            ],
+            "emissiveTexture" : {
+                "index" : 3,
+                "texCoord" : 0
+            },
+            "name" : "RollerCoasterCart_blinn2SG1",
+            "normalTexture" : {
+                "index" : 4,
+                "texCoord" : 0
+            },
+            "occlusionTexture" : {
+                "index" : 5,
+                "texCoord" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 6,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 5,
+                    "texCoord" : 0
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                0,
+                0,
+                0
+            ],
+            "name" : "lambert1",
+            "normalTexture" : {
+                "index" : 7,
+                "texCoord" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 8,
+                    "texCoord" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 9,
+                    "texCoord" : 0
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "defaultMaterial.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "defaultMaterial.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        },
+        {
+            "name" : "defaultMaterial",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 2
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "source" : 0
+        },
+        {
+            "source" : 1
+        },
+        {
+            "source" : 2
+        },
+        {
+            "source" : 3
+        },
+        {
+            "source" : 4
+        },
+        {
+            "source" : 5
+        },
+        {
+            "source" : 6
+        },
+        {
+            "source" : 7
+        },
+        {
+            "source" : 8
+        },
+        {
+            "source" : 9
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "RollerCoasterCart_blinn1SG1_normal",
+            "uri" : "RollerCoasterCart_blinn1SG1_normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "RollerCoasterCart_blinn1SG1_metallicRoughness",
+            "uri" : "RollerCoasterCart_blinn1SG1_metallicRoughness.png"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "RollerCoasterCart_blinn1SG1_baseColor",
+            "uri" : "RollerCoasterCart_blinn1SG1_baseColor.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "RollerCoasterCart_blinn2SG1_emissive",
+            "uri" : "RollerCoasterCart_blinn2SG1_emissive.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "RollerCoasterCart_blinn2SG1_normal",
+            "uri" : "RollerCoasterCart_blinn2SG1_normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "RollerCoasterCart_blinn2SG1_metallicRoughness",
+            "uri" : "RollerCoasterCart_blinn2SG1_metallicRoughness.png"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "RollerCoasterCart_blinn2SG1_baseColor",
+            "uri" : "RollerCoasterCart_blinn2SG1_baseColor.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "lambert1_normal",
+            "uri" : "lambert1_normal.png"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "lambert1_baseColor",
+            "uri" : "lambert1_baseColor.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "lambert1_metallicRoughness",
+            "uri" : "lambert1_metallicRoughness.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 2706,
+            "max" : [
+                0.8271329998970032,
+                0.4108549952507019,
+                0.5415930151939392
+            ],
+            "min" : [
+                -1,
+                -0.5373049974441528,
+                -0.5437629818916321
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 2706,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 2706,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 11070,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 2342,
+            "max" : [
+                1,
+                0.5373049974441528,
+                0.5862380266189575
+            ],
+            "min" : [
+                -0.972353994846344,
+                -0.4687049984931946,
+                -0.5862380266189575
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 2342,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 2342,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 8184,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 15753,
+            "max" : [
+                1.0298899412155151,
+                0.44527000188827515,
+                0.6747819781303406
+            ],
+            "min" : [
+                -1.1153199672698975,
+                -0.6363999843597412,
+                -0.6788740158081055
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 15753,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 15753,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 52044,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 32472,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 32472,
+            "byteOffset" : 32472
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 21648,
+            "byteOffset" : 64944
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 22140,
+            "byteOffset" : 86592
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 28104,
+            "byteOffset" : 108732
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 28104,
+            "byteOffset" : 136836
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18736,
+            "byteOffset" : 164940
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 16368,
+            "byteOffset" : 183676
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 189036,
+            "byteOffset" : 200044
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 189036,
+            "byteOffset" : 389080
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 126024,
+            "byteOffset" : 578116
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 104088,
+            "byteOffset" : 704140
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 808228,
+            "uri" : "scene.bin"
+        }
+    ]
+}
