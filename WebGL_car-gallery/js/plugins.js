@@ -126,6 +126,7 @@ let car;
 
 function handle_load( object) {
      car = object.scene;
+     car.material = new THREE.MeshLambertMaterial();
      car.position.y = -1.1;
      car.position.z = -3;
      car.scale.set(3.7,3.7,3.7);
