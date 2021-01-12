@@ -27,19 +27,19 @@ let controls = new  THREE.OrbitControls(camera,renderer.domElement);
 hlight = new THREE.AmbientLight (0x404040,10);
 scene.add(hlight);
 
-let gallery = ['img/metal/textures/','img/metal/textures-1/','img/metal/textures-2/'];
+let gallery = ['./img/metal/textures/','./img/metal/textures-1/','./img/metal/textures-2/'];
 let current = 0;
 let btnStart = document.querySelector('.btn--next');
 btnStart.addEventListener('click', function () {
    current++
    current = current % gallery.length;
    loader.setResourcePath(gallery[current]);
-   loader.load('img/metal/scene.gltf', handle_load);
+   loader.load('./img/metal/scene.gltf', handle_load);
 })
 
 
 var loader = new THREE.GLTFLoader();
-loader.load('img/metal/scene.gltf', handle_load);
+loader.load('./img/metal/scene.gltf', handle_load);
 
 var mesh;
 
