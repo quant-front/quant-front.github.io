@@ -1,0 +1,14 @@
+{
+  "FIRST_SCREEN": {
+      "p1":"You are over 18?",
+      "p2":"By clicking yes,you accept the cookies",
+      "p3":"and agree with privacy policy",
+      "p4":"Scroll to explore",
+      "button1": "Yes",
+      "button2": "No"
+  },
+  "GIRL": {
+      "description": "Dive deeper...",
+      "button":  "Yes"
+  }
+}
