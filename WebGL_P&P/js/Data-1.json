@@ -1,14 +1,14 @@
 {
   "SCENE_GIRL": {
     "LINKS": {
-      "link1":  {"href": "https://www.geeksforgeeks.org", "name": "Headline-1 >","image": "img/new-1.jpg","video": true},
-      "link2":  {"href": "https://www.google.com", "name": "Headline-2 >","image": "img/new-1.jpg","video": false},
-      "link3":  {"href": "https://www.facebook.com/", "name": "Headline-3 >","image": "img/new-1.jpg","video": true},
-      "link4":  {"href": "https://twitter.com/", "name": "Headline-4 >","image": "img/new-1.jpg","video": false},
-      "link5":  {"href": "https://www.twitch.tv/", "name": "Headline-5 >","image": "img/new-1.jpg","video": false},
-      "link6":  {"href": "https://ru.wikipedia.org", "name": "Headline-6 >","image": "img/new-1.jpg","video": false},
-      "link7":  {"href": "https://www.youtube.com/", "name": "Headline-7 >","image": "img/new-1.jpg","video": false},
-      "link8":  {"href": "https://rozetka.com.ua", "name": "Headline-8 >","image": "img/new-1.jpg","video": true}
+      "link1":  {"href": "https://www.geeksforgeeks.org", "name": "Live stream >","image": "img/new-1.jpg","video":false},
+      "link2":  {"href": "https://www.google.com", "name": "Web models >","image": "img/new-1.jpg","video": false},
+      "link3":  {"href": "https://www.facebook.com/", "name": "Sex show >","image": "img/new-1.jpg","video": false},
+      "link4":  {"href": "https://twitter.com/", "name": "BDSM >","image": "img/new-1.jpg","video": false},
+      "link5":  {"href": "https://www.twitch.tv/", "name": "Fetish >","image": "img/new-1.jpg","video": false},
+      "link6":  {"href": "https://ru.wikipedia.org", "name": "ASMR >","image": "img/new-1.jpg","video": false},
+      "link7":  {"href": "https://www.youtube.com/", "name": "Secret desire >","image": "img/new-1.jpg","video": false},
+      "link8":  {"href": "https://rozetka.com.ua", "name": "Shop >","image": "img/new-1.jpg","video": false}
     }
   },
   "SCENE_SCREEN_1": {
