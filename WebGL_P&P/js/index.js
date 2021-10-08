@@ -51,6 +51,7 @@ const loader = new GLTFLoader(manager);
 
 const dracoLoader = new DRACOLoader(manager);
 dracoLoader.setDecoderPath( 'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/js/libs/draco/');
+dracoLoader.preload();
 dracoLoader.setDecoderConfig({type: 'js'});
 loader.setDRACOLoader( dracoLoader );
 
