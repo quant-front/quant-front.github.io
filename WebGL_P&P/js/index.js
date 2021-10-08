@@ -1,30 +1,31 @@
 import * as THREE from 'three/build/three.module.js';
-import {ObjectControls} from 'threeJS-object-controls';
+import {ObjectControls} from 'threejs-object-controls';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
-import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
-import { LuminosityHighPassShader } from 'three/examples/jsm/shaders/LuminosityHighPassShader.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass.js';
 import { InteractionManager } from "three.interactive";
 import LANGUAGEJSON from './LanguageEng-1.json';
 import DATAJSON from './Data-1.json';
-import {Raycaster} from "three/src/core/Raycaster";
+import * as  Stats  from "stats.js/build/stats.min";
+
+
 
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
 camera.layers.enable(1);
-
-let renderer = new THREE.WebGLRenderer({antialias: true});
+let renderer = new THREE.WebGLRenderer({antialias: true,powerPreference: 'high-performance', });
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0x160035 );
 renderer.autoClear = false;
 let doc = document.querySelector('.main');
 doc.appendChild( renderer.domElement );
+
+let loaderScreen = document.querySelector('.main');
+
 
 const interactionManager = new InteractionManager(
      renderer,
@@ -33,11 +34,13 @@ const interactionManager = new InteractionManager(
 );
 
 
+
 window.addEventListener('resize', function () {
      let width = window.innerWidth;
      let height = window.innerHeight;
      renderer.setSize(width,height);
      camera.aspect = width / height;
+     renderer.setPixelRatio(Math.min(window.devicePixelRatio,2))
      camera.updateProjectionMatrix();
 });
 
@@ -47,12 +50,16 @@ const manager = new THREE.LoadingManager();
 const loader = new GLTFLoader(manager);
 
 const dracoLoader = new DRACOLoader(manager);
-dracoLoader.setDecoderPath( 'decoder/');
+dracoLoader.setDecoderPath( 'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/js/libs/draco/');
 dracoLoader.setDecoderConfig({type: 'js'});
 loader.setDRACOLoader( dracoLoader );
 
+loader.load('./models/model3.glb', handle_load1);
+loader.load('./models/model3.glb', handle_load);
 
-let x = 1; let y = 1; let width = 90; let height = 60; let radius = 10;
+
+
+let x = 1; let y = 1; let width = 9; let height = 6; let radius = 1;
 let shape = new THREE.Shape();
 shape.moveTo( x, y + radius );
 shape.lineTo( x, y + height - radius );
@@ -96,19 +103,38 @@ PlaneScene4.position.y = -5;
 PlaneScene4.position.z = -270;
 PlaneScene4.layers.set(1);
 
+
+
 const SceneStarGeometry = new THREE.SphereGeometry( 0.8, 32, 16 );
 const SceneStarMaterial = new THREE.MeshBasicMaterial( { color: 'white' } );
 
-const SceneStarGroup = new THREE.Object3D();
-for (let i =0; i<300; i++){
-     const sphere = new THREE.Mesh( SceneStarGeometry, SceneStarMaterial );
-     sphere.position.y  = Math.random()* 300 -150
-     sphere.position.x  = Math.random()* 300 -150
-     sphere.position.z  = Math.random()* 300 -150
-     SceneStarGroup.add(sphere);
-     sphere.layers.set(1);
+const StarsMesh = new THREE.InstancedMesh(SceneStarGeometry, SceneStarMaterial, 300)
+StarsMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage)
+StarsMesh.layers.set(1);
+StarsMesh.position.z = -270;
+
+
+for(let i = 0; i < 300; i++)
+{
+     const position = new THREE.Vector3(
+          Math.random()* 300 -150,
+          Math.random()* 300 -150,
+          Math.random()* 300 -150
+     )
+
+     const quaternion = new THREE.Quaternion()
+     quaternion.setFromEuler(new THREE.Euler(
+          (Math.random() - 0.5) * Math.PI * 2,
+          (Math.random() - 0.5) * Math.PI * 2,
+          0
+     ))
+
+     const matrix = new THREE.Matrix4()
+     matrix.makeRotationFromQuaternion(quaternion)
+     matrix.setPosition(position)
+     StarsMesh.setMatrixAt(i, matrix)
 }
-SceneStarGroup.position.z = -270;
+
 
 let FogGroup = new THREE.Object3D();
 let TextureLoader = new  THREE.TextureLoader();
@@ -132,7 +158,7 @@ scene.add(FogGroup)
 
 const FullRoad = new THREE.Object3D();
 const Line = new THREE.Object3D();
-const RoadGeometry = new THREE.BoxGeometry( 0.2, 10, 0.5 );
+const RoadGeometry = new THREE.BoxGeometry( 0.2, 10, 0.5 ,1,1);
 const RoadMaterial = new THREE.MeshBasicMaterial( {color:0xFFFCFA} );
 const RoadRight = new THREE.Mesh( RoadGeometry, RoadMaterial );
 RoadRight.rotation.x = Math.PI * -.5;
@@ -199,8 +225,6 @@ FullRoadScene3.position.z = -140;
 const FullRoadScene4 = FullRoad.clone();
 FullRoadScene4.position.z = -190;
 
-loader.load('./models/model3.glb', handle_load1);
-loader.load('./models/model3.glb', handle_load);
 
 
 let CatMesh;
@@ -233,7 +257,6 @@ function handle_load(gltf){
                child.material = myMaterial;
           }
      } );
-
      scene.add(CatMesh);
 }
 
@@ -260,7 +283,7 @@ function handle_load1(gltf){
 }
 
 function ready() {
-
+     // TunnelLoad();
      loader.load('./models/model8.glb', handle_load2);
 }
 window.addEventListener("load", ready);
@@ -327,8 +350,8 @@ for (let i = 0; i < GirlVideoPathValue.length; i++) {
      else if (GirlVideoPathValue[i].video){
           pointsArrAll[i].material.map = GirlDataVideoArray[i];
      }
-     pointsArrAll[i].scale.multiplyScalar(0.050);
-     pointsArrAll[i].position.set(-10.9,-0.55,-274);
+     pointsArrAll[i].scale.multiplyScalar(0.50);
+     pointsArrAll[i].position.set(-11.4,-0.95,-274);
 }
 
 
@@ -538,15 +561,33 @@ let LinkArray = [];
 
 let HrefArray = []
 
+
 let GirlLinkValue = Object.values(DATAJSON.SCENE_GIRL.LINKS);
 for (let i = 0; i < GirlLinkValue.length ; i++) {
      HrefArray.push(GirlLinkValue[i].href)
+
+}
+
+for (let i = 0; i < PointsArray.length; i++) {
+     PointsArray[i].addEventListener('click', () => {
+          window.open(HrefArray[i], '_blank')
+     })
 }
 
 let SubstrateArray = [];
 
 FontLoad.load('font/bold.json', fontLinks_load);
 let FontLinks;
+
+let LinkPlugGeo = new THREE.PlaneBufferGeometry(3.9, 2.65);
+
+let LinkPlugMat = new THREE.MeshPhongMaterial({
+     color: 0x25004D,
+     side: THREE.DoubleSide,
+     transparent:true,
+     opacity:0,
+});
+
 
 function fontLinks_load(font){
 
@@ -593,43 +634,38 @@ function fontLinks_load(font){
 
      const FontMaterial = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
      FontLinks = new THREE.Mesh(Link1Geometry,FontMaterial);
-     Link1Geometry.center();
-     FontLinks.position.set(-7.90,-0.10,-271.67);
+     FontLinks.position.set(-9.5,-0.24,-271.67);
 
      const FontMaterial2 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
      const FontLinks2 = new THREE.Mesh(Link2Geometry,FontMaterial2);
-     FontLinks2.position.set(-7.90,-0.10,-271.67);
-     Link2Geometry.center();
+     FontLinks2.position.set(-9.5,-0.24,-271.67);
 
      const FontMaterial3 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
      const FontLinks3 = new THREE.Mesh(Link3Geometry,FontMaterial3);
-     FontLinks3.position.set(-7.90,-0.10,-271.67);
-     Link3Geometry.center();
+     FontLinks3.position.set(-9.5,-0.24,-271.67);
 
      const FontMaterial4 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
      const FontLinks4 = new THREE.Mesh(Link4Geometry,FontMaterial4);
-     FontLinks4.position.set(-7.90,-0.10,-271.67);
-     Link4Geometry.center();
+     FontLinks4.position.set(-9.5,-0.24,-271.67);
+
 
      const FontMaterial5 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
      const FontLinks5 = new THREE.Mesh(Link5Geometry,FontMaterial5);
-     FontLinks5.position.set(-7.90,-0.10,-271.67);
-     Link5Geometry.center();
+     FontLinks5.position.set(-9.5,-0.24,-271.67);
+
 
      const FontMaterial6 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
      const FontLinks6 = new THREE.Mesh(Link6Geometry,FontMaterial6);
-     FontLinks6.position.set(-7.90,-0.10,-271.67);
-     Link6Geometry.center();
+     FontLinks6.position.set(-9.5,-0.24,-271.67);
 
      const FontMaterial7 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
      const FontLinks7 = new THREE.Mesh(Link7Geometry,FontMaterial7);
-     FontLinks7.position.set(-7.90,-0.10,-271.67);
-     Link7Geometry.center();
+     FontLinks7.position.set(-9.5,-0.24,-271.67);
 
      const FontMaterial8 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
      const FontLinks8 = new THREE.Mesh(Link8Geometry,FontMaterial8);
-     FontLinks8.position.set(-7.90,-0.10,-271.67);
-     Link8Geometry.center();
+     FontLinks8.position.set(-9.5,-0.24,-271.67);
+
 
      LinkArray.push(FontLinks,FontLinks2,FontLinks3,FontLinks4,FontLinks5,FontLinks6,FontLinks7,FontLinks8);
      interactionManager.add(FontLinks);
@@ -641,21 +677,15 @@ function fontLinks_load(font){
      interactionManager.add(FontLinks7);
      interactionManager.add(FontLinks8);
 
-     const LinkPlugGeo = new THREE.PlaneBufferGeometry(3, 0.7);
-     const LinkPlugMat = new THREE.MeshPhongMaterial({
-          color: 0x25004D,
-          side: THREE.DoubleSide,
-          transparent:true,
-          opacity:0,
-     });
-
      for(let i=0; i<8; i++){
           const PlaneLink = new THREE.Mesh(LinkPlugGeo, LinkPlugMat);
-          PlaneLink.position.set(-7.90,-0.10,-271.67);
+
+          PlaneLink.position.set(-7.65,0.89,-271.67);
           SubstrateArray.push(PlaneLink);
           interactionManager.add(PlaneLink[i]);
           interactionManager.add(PlaneLink);
-          hoverArray.push(PointSphere,PointSphere1,PointSphere2,PointSphere3,PointSphere4,PointSphere5,PointSphere6,PointSphere7,DeepPlane,FakeButton,FontLinks,FontLinks2,FontLinks3,FontLinks4,FontLinks5,FontLinks6,FontLinks7,FontLinks8,SubstrateArray[i]);
+
+          hoverArray.push(PointSphere,PointSphere1,PointSphere2,PointSphere3,PointSphere4,PointSphere5,PointSphere6,PointSphere7,DeepPlane,FakeButton,SubstrateArray[i]);
      }
 
 }
@@ -704,28 +734,30 @@ function setOpacity( obj, opacity ) {
 }
 scene.add(myGroup);
 
-const TunnelGeometry = new THREE.CylinderGeometry( 5, 5, 180, 12,2,true );
-const TunnelMaterial = new THREE.MeshBasicMaterial( {
-     side: THREE.DoubleSide,
-     map:new  THREE.TextureLoader().load('img/tunnel2.jpg')
-} );
-TunnelMaterial.map.wrapT = THREE.RepeatWrapping;
-TunnelMaterial.map.wrapS =  THREE.RepeatWrapping;
-const TunnelCylinder = new THREE.Mesh( TunnelGeometry, TunnelMaterial );
-TunnelCylinder.rotation.x = Math.PI * -.5;
-TunnelCylinder.position.z = 140;
-TunnelCylinder.position.y = -30;
-scene.add( TunnelCylinder );
+const  TunnelLoad = () => {
+     const TunnelGeometry = new THREE.CylinderGeometry( 5, 5, 180, 12,2,true );
+     const TunnelMaterial = new THREE.MeshBasicMaterial( {
+          side: THREE.DoubleSide,
+          map:new  THREE.TextureLoader().load('img/tunnel2.jpg')
+     } );
+     TunnelMaterial.map.wrapT = THREE.RepeatWrapping;
+     TunnelMaterial.map.wrapS =  THREE.RepeatWrapping;
+     const TunnelCylinder = new THREE.Mesh( TunnelGeometry, TunnelMaterial );
+     TunnelCylinder.rotation.x = Math.PI * -.5;
+     TunnelCylinder.position.z = 140;
+     TunnelCylinder.position.y = -30;
+     scene.add( TunnelCylinder );
 
-const planeGeoPlug = new THREE.PlaneBufferGeometry(30, 30);
-const planeMatPlug = new THREE.MeshBasicMaterial({
-     color: 0x160035,
-     side: THREE.DoubleSide,
-});
-const PlanePlug = new THREE.Mesh(planeGeoPlug, planeMatPlug);
-PlanePlug.position.z = 38;
-PlanePlug.position.y = -30;
-scene.add( PlanePlug);
+     const planeGeoPlug = new THREE.PlaneBufferGeometry(30, 30);
+     const planeMatPlug = new THREE.MeshBasicMaterial({
+          color: 0x160035,
+          side: THREE.DoubleSide,
+     });
+     const PlanePlug = new THREE.Mesh(planeGeoPlug, planeMatPlug);
+     PlanePlug.position.z = 38;
+     PlanePlug.position.y = -30;
+     scene.add( PlanePlug);
+}
 
 
 {
@@ -801,10 +833,12 @@ BallGroupScene3.add(BallMesh3,BallMesh4);
 BallGroupScene3.position.z  = -140;
 
 const BallMeshScene4 = BallMesh.clone();
-BallMeshScene4.scale.multiplyScalar(0.5);
+
+BallMeshScene4.scale.multiplyScalar(1);
 BallMeshScene4.position.y = -3.4;
 const BallMeshScene41 = BallMesh1.clone();
-BallMeshScene41.scale.multiplyScalar(0.3);
+
+BallMeshScene41.scale.multiplyScalar(0.9);
 BallMeshScene41.position.y = -4.4;
 
 const BallGroupScene4 = new THREE.Object3D();
@@ -996,8 +1030,8 @@ for (let i = 0; i < uvAttribute.count; i++) {
 
 const ScreenTableMaterial = new  THREE.MeshBasicMaterial({wireframe: false,side: THREE.DoubleSide,color:'white',map:screenTexture,opacity:0.35,transparent:true});
 let ScreenTable = new THREE.Mesh(ScreenGeometry, ScreenTableMaterial);
-ScreenTable.scale.multiplyScalar(0.070);
-ScreenTable.position.set(-3.2,-1.2,8.5);
+ScreenTable.scale.multiplyScalar(0.70);
+ScreenTable.position.set(-3.82,-1.83,8.5);
 
 let Screen1Data;
 let Screen2Data;
@@ -1040,13 +1074,13 @@ ScreenPlayArray.push(videoScreenTexture,videoScreenTexture1);
 const VideoMaterial = new THREE.MeshBasicMaterial({wireframe: false, side: THREE.DoubleSide, map: Screen1Data[0]});
 
 let VideoScreen = new THREE.Mesh(ScreenGeometry, VideoMaterial);
-VideoScreen.scale.multiplyScalar(0.1);
-VideoScreen.position.set(-7.2,-1,-70);
+// VideoScreen.scale.multiplyScalar(0.1);
+VideoScreen.position.set(-8.09,-1.9,-70);
 
 const VideoMaterial2 = new THREE.MeshBasicMaterial({wireframe: false, side: THREE.DoubleSide, map: Screen2Data[0]});
 let VideoScreen2 = new THREE.Mesh(ScreenGeometry, VideoMaterial2);
-VideoScreen2.scale.multiplyScalar(0.1);
-VideoScreen2.position.set(2.2,-1,-140);
+// VideoScreen2.scale.multiplyScalar(1);
+VideoScreen2.position.set(1.3,-1.9,-140);
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -1074,7 +1108,7 @@ bloomPass.radius = 0.1;
 bloomPass.renderToScreen = true;
 
 // Outline pass
-var outlinePass = new OutlinePass(
+let outlinePass = new OutlinePass(
      new THREE.Vector2(window.innerWidth, window.innerHeight),
      scene,
      camera,
@@ -1136,36 +1170,36 @@ function font_load(font){
      FontGeometry.center();
      FontMesh.position.set(0,2,8.5)
      scene.add(FontMesh);
-     FontMesh.layers.set(1);
+     // FontMesh.layers.set(1);
 
      const FontMeshBottom = new THREE.Mesh(FontGeometryBottom,FontMaterial);
      FontGeometryBottom.center();
      FontMeshBottom.position.set(0,0.6,8.5);;
-     FontMeshBottom.layers.set(1);
+     // FontMeshBottom.layers.set(1);
      scene.add(FontMeshBottom);
 
      const FontMeshBottom1 = new THREE.Mesh(FontGeometryBottom1,FontMaterial);
      FontGeometryBottom1.center();
      FontMeshBottom1.position.set(0,0.2,8.5);
-     FontMeshBottom1.layers.set(1);
+     // FontMeshBottom1.layers.set(1);
      scene.add(FontMeshBottom1);
 
      const MeshEnter = new THREE.Mesh(EnterGeometry,FontMaterial);
      EnterGeometry.center();
      MeshEnter.position.set(-1,1.3,8.5);
-     MeshEnter.layers.set(1);
+     // MeshEnter.layers.set(1);
      scene.add( MeshEnter);
 
      const MeshClose = new THREE.Mesh(CloseGeometry,FontMaterial);
      CloseGeometry.center();
      MeshClose.position.set(0.9,1.3,8.5);
-     MeshClose.layers.set(1);
+     // MeshClose.layers.set(1);
      scene.add( MeshClose);
 
      const MeshScroll = new THREE.Mesh(ScrollGeometry,FontMaterial);
      ScrollGeometry.center();
      MeshScroll.position.set(0.9,3.0,-8.5);
-     MeshScroll.layers.set(1);
+     // MeshScroll.layers.set(1);
      MeshScrollGroup.add(MeshScroll);
 
      outlinePass.selectedObjects = [FontMesh,FontMeshBottom,FontMeshBottom1,MeshEnter,MeshClose,MeshScroll];
@@ -1193,7 +1227,7 @@ manager.onLoad = function ( ) {
      scene.add(ScreenTable);
      scene.add(MeshCloseFake);
      scene.add(MeshEnterFake);
-
+     loaderScreen.style.display = 'block';
 };
 
 
@@ -1221,8 +1255,9 @@ MeshEnterFake.addEventListener("click", (event) => {
      scrollFirstScene = true;
      ScrollExploreTrigger = true;
      screenHover = false;
+     ScreenTable.visible = false;
+     TableScreen.visible = false;
 });
-
 interactionManager.add(MeshEnterFake);
 interactionManager.add(MeshCloseFake);
 
@@ -1230,15 +1265,12 @@ interactionManager.add(MeshCloseFake);
 let removeObserver = true;
 
 //Scene Speed
-let speed = 0.10;
-let speedSecond = 0.10;
-let speedThird = 0.10;
-let speedFour = 0.10;
-speed = Math.max( 0, 0.30 + 0.005 );
-speedSecond = Math.max( 0, 0.30 + 0.005 );
-speedThird = Math.max( 0, 0.30 + 0.005 );
-speedFour = Math.max( 0, 0.30 + 0.005 );
-let  exploreSpeed = 0.02;
+let speed = 0.5;
+let speedSecond = 0.5;
+let speedThird = 0.5;
+let speedFour = 0.5;
+
+let  exploreSpeed = 0.04;
 let TunnelSpeed = 0.95;
 let opacitySpeed = 0.0100;
 
@@ -1255,6 +1287,7 @@ let ThirdSceneStopper = 0;
 let FourSceneStopper = 0;
 let TunnelStopper = 0;
 let TunnelRedirect = 0;
+let scrollStopper = 0;
 
 camera.position.z = 20;
 
@@ -1269,24 +1302,25 @@ const HoverFunction = (array) => {
      }
 }
 
+HoverFunction(cursorObjLockScreen);
+// const stats = new Stats();
+// stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
+// document.body.appendChild( stats.dom );
+
 const animate = function () {
-     requestAnimationFrame( animate );
-     interactionManager.update();
-     if (removeObserver){
-          if (screenHover) {
-               HoverFunction(cursorObjLockScreen);
-          }
-          if (!screenHover) {
-               document.body.style.cursor = "default";
-          }
-     }
+     // stats.begin();
 
      if (ScrollExploreTrigger) {
           MeshScrollGroup.position.z += exploreSpeed;
           MeshScrollGroup.position.y -= exploreSpeed;
-          if (MeshScrollGroup.position.z >= 0){
-               exploreSpeed = 0;
+          scrollStopper++;
+          if (scrollStopper === 50) {
+               if (MeshScrollGroup.position.z >= 0){
+                    exploreSpeed = 0;
+                    ScrollExploreTrigger = false;
+               }
           }
+
      }
 
      if (scrollFirstScene) {
@@ -1300,19 +1334,22 @@ const animate = function () {
      if (FirstSceneMove) {
           camera.position.z -= speed;
           if (camera.position.z <= -60 ) {
-               speed = Math.max( 0, speed - 0.002 );
+               speed = Math.max( 0, speed - 0.005 );
+               setTimeout(() => {
+                    FirstSceneMove = false;
+               },10)
           }
           PlanetGroup.position.z -= speed;
           if (PlanetGroup.position.z <= -60 ) {
-               speed = Math.max( 0, speed - 0.002 );
+               speed = Math.max( 0, speed - 0.005 );
           }
           StarGroup.position.z -= speed;
           if (StarGroup.position.z <= -60 ) {
-               speed = Math.max( 0, speed - 0.002 );
+               speed = Math.max( 0, speed - 0.005 );
           }
           FogGroup.position.z -= speed;
           if (FogGroup.position.z <= -70 ) {
-               speed = Math.max( 0, speed - 0.002 );
+               speed = Math.max( 0, speed - 0.005 );
           }
           if (camera.position.z <= -2 ) {
                FirstSceneStopper++;
@@ -1346,21 +1383,21 @@ const animate = function () {
           camera.position.z -= speedSecond;
 
           if (camera.position.z <= -130 ) {
-               speedSecond = Math.max( 0, speedSecond - 0.002 );
+               speedSecond = Math.max( 0, speedSecond - 0.005 );
           }
           PlanetGroup.position.z -= speedSecond;
           if (PlanetGroup.position.z <= -130) {
 
-               speedSecond = Math.max(0, speedSecond - 0.002);
+               speedSecond = Math.max(0, speedSecond - 0.005);
           }
 
           StarGroup.position.z -= speedSecond;
           if (StarGroup.position.z <= -130 ) {
-               speedSecond = Math.max( 0, speedSecond - 0.002 );
+               speedSecond = Math.max( 0, speedSecond - 0.005 );
           }
           FogGroup.position.z -= speedSecond;
           if (FogGroup.position.z <= -140 ) {
-               speedSecond = Math.max( 0, speedSecond - 0.002 );
+               speedSecond = Math.max( 0, speedSecond - 0.005 );
           }
           if (camera.position.z <= -72.5 ) {
                SecondSceneStopper++;
@@ -1394,23 +1431,24 @@ const animate = function () {
           SecondSceneMove = false;
           camera.position.z -= speedThird;
           if (camera.position.z <= -205 ) {
-               speedThird = Math.max( 0, speedThird - 0.002 );
+               speedThird = Math.max( 0, speedThird - 0.005 );
           }
           PlanetGroup.position.z -= speedThird;
           if (PlanetGroup.position.z <= -205 ) {
-               speedThird = Math.max( 0, speedThird - 0.002 );
+               speedThird = Math.max( 0, speedThird - 0.005 );
           }
           StarGroup.position.z -= speedThird;
           if (StarGroup.position.z <= -205 ) {
-               speedThird = Math.max( 0, speedThird - 0.002 );
+               speedThird = Math.max( 0, speedThird - 0.005 );
           }
           FogGroup.position.z -= speedThird;
           if (FogGroup.position.z <= -215 ) {
-               speedThird = Math.max( 0, speedThird - 0.002 );
+               speedThird = Math.max( 0, speedThird - 0.005 );
           }
           if (camera.position.z <= -147 ) {
                ThirdSceneStopper++;
                if (ThirdSceneStopper === 1) {
+                    TunnelLoad();
                     scene.add( PlaneScene4 );
                     scene.add(FullRoadScene4);
                     scene.add(BallGroupScene4);
@@ -1438,13 +1476,16 @@ const animate = function () {
           ThirdSceneMove = false;
           camera.position.z -= speedFour;
           if (camera.position.z <= -230 ) {
-               speedFour = Math.max( 0, speedFour - 0.002 );
+               speedFour = Math.max( 0, speedFour - 0.005 );
                setTimeout(() => {
-                    SceneStarGroup.rotation.y += 0.0005;
+
+                    StarsMesh.rotation.y += 0.0005;
+
                     FourSceneStopper++;
                     if (FourSceneStopper === 1) {
                          removeObserver = false;
-                         scene.add(SceneStarGroup);
+
+                         scene.add(StarsMesh);
                          let controls = new ObjectControls(camera, renderer.domElement, GirlGroup);
                          controls.setDistance(20, 20);
                          controls.disableZoom();
@@ -1455,13 +1496,22 @@ const animate = function () {
                                    window.open(HrefArray[idx], '_blank')
                               }.bind(null,i))
                          }
-
                          for (let i = 0; i < PointsArray.length; i++ ) {
                               PointsArray[i].addEventListener('mouseover', function (idx)  {
                                    scene.remove(PlaneArray[i])
                                    scene.add( PlaneArray[idx]);
                                    scene.add(SubstrateArray[idx]);
                                    scene.add(LinkArray[idx]);
+
+                                   for (let j = 0; j <SubstrateArray.length ; j++) {
+                                        SubstrateArray[j].geometry = new THREE.PlaneBufferGeometry(3.9, 2.65);
+                                        SubstrateArray[j].material = new THREE.MeshPhongMaterial({
+                                             color: 0x25004D,
+                                             side: THREE.DoubleSide,
+                                             transparent:true,
+                                             opacity:0,
+                                        });
+                                   }
                               }.bind(null,i))
                          }
                          for (let i = 0; i < PointsArray.length; i++ ) {
@@ -1488,25 +1538,15 @@ const animate = function () {
                                    scene.remove( PlaneArray[i]);
                                    scene.remove(LinkArray[idx]);
                                    scene.remove(SubstrateArray[idx]);
+                                   for (let j = 0; j <SubstrateArray.length ; j++) {
+                                        SubstrateArray[j].geometry = undefined;
+                                        SubstrateArray[j].material = undefined;
+                                   }
                               }.bind(null,i))
 
                          }
-                         document.addEventListener( 'mousemove', onDocumentMouseMovePointsGirl, false );
-
-                         function onDocumentMouseMovePointsGirl(event) {
-
-                              const mouse = new THREE.Vector2();
-                              mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-                              mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-                              const raycaster = new Raycaster();
-                              raycaster.setFromCamera( mouse, camera );
-                              const intersects = raycaster.intersectObjects( hoverArray  );
-                              if(intersects.length > 0) {
-                                   document.body.style.cursor = "pointer";
-                              } else {
-                                   document.body.style.cursor = "default";
-                              }
-                         }
+                         HoverFunction(hoverArray);
+                         HoverFunction(SubstrateArray);
                     }
 
                     FakeButton.addEventListener('click', () => {
@@ -1541,6 +1581,7 @@ const animate = function () {
                }
           },800)
      }
+     // stats.end();
      interactionManager.update();
      renderer.clear();
      camera.layers.set(1);
@@ -1548,6 +1589,8 @@ const animate = function () {
      renderer.clearDepth();
      camera.layers.set(0);
      renderer.render(scene, camera);
+
+     requestAnimationFrame( animate );
 };
 
 animate();

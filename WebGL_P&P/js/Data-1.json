@@ -18,7 +18,7 @@
   },
   "SCENE_SCREEN_2": {
     "LINKS": {
-      "link1":  {"href": "https://www.linkedin.com/feed/", "name": "SEX REALITY >","image": "img/new-2.jpg","video":true}
+      "link1":  {"href": "https://www.linkedin.com/feed/", "name": "SEX REALITY >","image": "img/new-2.jpg","video":false}
     }
   },
   "TUNNEL": {
