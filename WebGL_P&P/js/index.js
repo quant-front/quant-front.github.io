@@ -14,6 +14,7 @@ import * as  Stats  from "stats.js/build/stats.min";
 
 
 
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
 camera.layers.enable(1);
@@ -322,22 +323,24 @@ let GirlImagePathValue = Object.values(DATAJSON.SCENE_GIRL.LINKS);
 for (let i = 0; i < GirlImagePathValue.length; i++) {
      let VideoImage = new THREE.TextureLoader().load(GirlImagePathValue[i].image);
      GirlDataImageArray.push(VideoImage);
+
 }
 
 
 let GirlVideoArr = [];
 let GirlTextureArr = [];
-let  digit = [1,2,3,4,5,6,7,8];
-for (let i = 0; i < 8; i++) {
-     let GirlVideo = document.getElementById(`video-${+digit[i]}`);
+
+for (let data in GirlDataImageArray) {
+     let GirlVideo = document.getElementById(`video-${+data}`);
      GirlVideoArr.push(GirlVideo);
-     const GirlTexture = new THREE.VideoTexture(GirlVideoArr[i]);
+     const GirlTexture = new THREE.VideoTexture(GirlVideoArr[data]);
      GirlTextureArr.push(GirlTexture);
-     GirlDataVideoArray.push(GirlTextureArr[i]);
-     GirlPlayArray.push(GirlVideoArr[i]);
+     GirlDataVideoArray.push(GirlTextureArr[data]);
+     GirlPlayArray.push(GirlVideoArr[data]);
 }
+
 let materialArr = [];
-let pointsArrAll = []
+let pointsArrAll = [];
 
 let GirlVideoPathValue = Object.values(DATAJSON.SCENE_GIRL.LINKS);
 for (let i = 0; i < GirlVideoPathValue.length; i++) {
@@ -348,11 +351,13 @@ for (let i = 0; i < GirlVideoPathValue.length; i++) {
      if (!GirlVideoPathValue[i].video){
           pointsArrAll[i].material.map = GirlDataImageArray[i];
      }
+
      else if (GirlVideoPathValue[i].video){
           pointsArrAll[i].material.map = GirlDataVideoArray[i];
      }
      pointsArrAll[i].scale.multiplyScalar(0.50);
      pointsArrAll[i].position.set(-11.4,-0.95,-274);
+
 }
 
 
@@ -375,8 +380,8 @@ let shapeButton = new THREE.Shape();
 shapeButton.autoClose = true;
 let angleStep = Math.PI * 0.5;
 let w = 90, h = 40, r = 20;
-shapeButton.absarc(w - r, h - r, r, angleStep * 0, angleStep * 1);
-shapeButton.absarc(r, h - r, r, angleStep * 1, angleStep * 2);
+shapeButton.absarc(w - r, h - r, r, 0, angleStep);
+shapeButton.absarc(r, h - r, r, angleStep, angleStep * 2);
 shapeButton.absarc(r, r, r, angleStep * 2, angleStep * 3);
 shapeButton.absarc(w - r, r, r, angleStep * 3, angleStep * 4);
 
@@ -592,125 +597,36 @@ let LinkPlugMat = new THREE.MeshPhongMaterial({
 
 function fontLinks_load(font){
 
-     const Link1Geometry = new THREE.TextGeometry( DATAJSON.SCENE_GIRL.LINKS.link1.name , {
-          font: font,
-          size: 0.35,
-          height: 0.00,
-     } );
-     const Link2Geometry = new THREE.TextGeometry( DATAJSON.SCENE_GIRL.LINKS.link2.name , {
-          font: font,
-          size: 0.35,
-          height: 0.00,
-     } );
-     const Link3Geometry = new THREE.TextGeometry( DATAJSON.SCENE_GIRL.LINKS.link3.name, {
-          font: font,
-          size: 0.35,
-          height: 0.00,
-     } );
-     const Link4Geometry = new THREE.TextGeometry( DATAJSON.SCENE_GIRL.LINKS.link4.name , {
-          font: font,
-          size: 0.35,
-          height: 0.00,
-     } );
-     const Link5Geometry = new THREE.TextGeometry( DATAJSON.SCENE_GIRL.LINKS.link5.name, {
-          font: font,
-          size: 0.35,
-          height: 0.00,
-     } );
-     const Link6Geometry = new THREE.TextGeometry( DATAJSON.SCENE_GIRL.LINKS.link6.name , {
-          font: font,
-          size: 0.35,
-          height: 0.00,
-     } );
-     const Link7Geometry = new THREE.TextGeometry( DATAJSON.SCENE_GIRL.LINKS.link7.name, {
-          font: font,
-          size: 0.35,
-          height: 0.00,
-     } );
-     const Link8Geometry = new THREE.TextGeometry( DATAJSON.SCENE_GIRL.LINKS.link8.name , {
-          font: font,
-          size: 0.35,
-          height: 0.00,
-     } );
-
      const FontMaterial = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
-     FontLinks = new THREE.Mesh(Link1Geometry,FontMaterial);
-     FontLinks.position.set(-9.5,-0.24,-271.67);
+     let LinkGeometryValue = Object.values(DATAJSON.SCENE_GIRL.LINKS);
+     for (let i = 0; i < LinkGeometryValue.length; i++) {
+          const LinkGeometryAll = new THREE.TextGeometry( LinkGeometryValue[i].name , {
+               font: font,
+               size: 0.35,
+               height: 0.00,
+          } );
+          FontLinks = new THREE.Mesh(LinkGeometryAll,FontMaterial);
+          FontLinks.position.set(-9.5,-0.24,-271.67);
+          LinkArray.push( FontLinks);
+     }
 
-     const FontMaterial2 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
-     const FontLinks2 = new THREE.Mesh(Link2Geometry,FontMaterial2);
-     FontLinks2.position.set(-9.5,-0.24,-271.67);
-
-     const FontMaterial3 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
-     const FontLinks3 = new THREE.Mesh(Link3Geometry,FontMaterial3);
-     FontLinks3.position.set(-9.5,-0.24,-271.67);
-
-     const FontMaterial4 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
-     const FontLinks4 = new THREE.Mesh(Link4Geometry,FontMaterial4);
-     FontLinks4.position.set(-9.5,-0.24,-271.67);
-
-
-     const FontMaterial5 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
-     const FontLinks5 = new THREE.Mesh(Link5Geometry,FontMaterial5);
-     FontLinks5.position.set(-9.5,-0.24,-271.67);
-
-
-     const FontMaterial6 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
-     const FontLinks6 = new THREE.Mesh(Link6Geometry,FontMaterial6);
-     FontLinks6.position.set(-9.5,-0.24,-271.67);
-
-     const FontMaterial7 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
-     const FontLinks7 = new THREE.Mesh(Link7Geometry,FontMaterial7);
-     FontLinks7.position.set(-9.5,-0.24,-271.67);
-
-     const FontMaterial8 = new   THREE.MeshBasicMaterial( {color: 'white',opacity:1,transparent:true});
-     const FontLinks8 = new THREE.Mesh(Link8Geometry,FontMaterial8);
-     FontLinks8.position.set(-9.5,-0.24,-271.67);
-
-
-     LinkArray.push(FontLinks,FontLinks2,FontLinks3,FontLinks4,FontLinks5,FontLinks6,FontLinks7,FontLinks8);
-     interactionManager.add(FontLinks);
-     interactionManager.add(FontLinks2);
-     interactionManager.add(FontLinks3);
-     interactionManager.add(FontLinks4);
-     interactionManager.add(FontLinks5);
-     interactionManager.add(FontLinks6);
-     interactionManager.add(FontLinks7);
-     interactionManager.add(FontLinks8);
-
-     for(let i=0; i<8; i++){
+     for (let i = 0; i <LinkArray.length ; i++) {
+          interactionManager.add(LinkArray[i]);
           const PlaneLink = new THREE.Mesh(LinkPlugGeo, LinkPlugMat);
 
           PlaneLink.position.set(-7.65,0.89,-271.67);
           SubstrateArray.push(PlaneLink);
-          interactionManager.add(PlaneLink[i]);
           interactionManager.add(PlaneLink);
 
           hoverArray.push(PointSphere,PointSphere1,PointSphere2,PointSphere3,PointSphere4,PointSphere5,PointSphere6,PointSphere7,DeepPlane,FakeButton,SubstrateArray[i]);
+          interactionManager.add(PointsArray[i]);
+          interactionManager.add(pointsArrAll[i]);
      }
 
 }
 
-interactionManager.add(PointSphere);
-interactionManager.add(PointSphere1);
-interactionManager.add(PointSphere2);
-interactionManager.add(PointSphere3);
-interactionManager.add(PointSphere4);
-interactionManager.add(PointSphere5);
-interactionManager.add(PointSphere6);
-interactionManager.add(PointSphere7);
 interactionManager.add(DeepPlane);
 interactionManager.add(FakeButton);
-
-
-interactionManager.add(pointsArrAll[0]);
-interactionManager.add(pointsArrAll[1]);
-interactionManager.add(pointsArrAll[2]);
-interactionManager.add(pointsArrAll[3]);
-interactionManager.add(pointsArrAll[4]);
-interactionManager.add(pointsArrAll[5]);
-interactionManager.add(pointsArrAll[6]);
-interactionManager.add(pointsArrAll[7]);
 
 
 let PlugOpacity = 0;
@@ -1250,7 +1166,7 @@ let PlugFlag;
 
 let screenHover = true;
 
-MeshEnterFake.addEventListener("click", (event) => {
+MeshEnterFake.addEventListener("click", () => {
      scene.remove(ScreenTable,TableScreen, CatMesh,CatLeftMesh);
      scene.add(MeshScrollGroup);
      scrollFirstScene = true;
@@ -1259,6 +1175,7 @@ MeshEnterFake.addEventListener("click", (event) => {
      ScreenTable.visible = false;
      TableScreen.visible = false;
 });
+
 interactionManager.add(MeshEnterFake);
 interactionManager.add(MeshCloseFake);
 
