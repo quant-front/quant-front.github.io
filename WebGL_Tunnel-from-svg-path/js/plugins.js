@@ -26,7 +26,6 @@ window.addEventListener('resize', function () {
 let controls = new  OrbitControls(camera,renderer.domElement);
 
 
-
 //Array of points
 const points = [
      [68.5,185.5],
@@ -53,16 +52,13 @@ const path = new THREE.CatmullRomCurve3(points);
 //Create the tube geometry from the path
 const geometry = new THREE.TubeGeometry( path, 300, 2, 20, true );
 //Basic material
-const material = new THREE.MeshBasicMaterial( { color: 0xff0000, side: THREE.DoubleSide} );
-//Create a mesh
-const tube = new THREE.Mesh( geometry, material );
-//Add tube into the scene
-scene.add( tube );
-tube.scale.multiplyScalar(0.3);
-tube.position.x = -40;
-tube.position.y = -40;
-tube.rotation.x = Math.PI * -.4;
+var frontMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, side: THREE.FrontSide } );
+var backMaterial = new THREE.MeshBasicMaterial( { color: 'black', side: THREE.BackSide } );
 
+var group = new THREE.Group();
+group.add( new THREE.Mesh( geometry, frontMaterial ) );
+group.add( new THREE.Mesh( geometry, backMaterial ) );
+scene.add( group );
 
 
 camera.position.z = 190;
