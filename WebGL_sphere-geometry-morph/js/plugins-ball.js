@@ -35,11 +35,11 @@ let controls = new  OrbitControls(camera,renderer.domElement);
 
 const textureLoader = new THREE.TextureLoader();
 
-const waterBaseColor = textureLoader.load("../assets/img/Water_002_COLOR.jpg");
-const waterNormalMap = textureLoader.load("../assets/img/Water_002_NORM.jpg");
-const waterHeightMap = textureLoader.load("../assets/img/Water_002_DISP.png");
-const waterRoughness = textureLoader.load("../assets/img/Water_002_ROUGH.jpg");
-const waterAmbientOcclusion = textureLoader.load("../assets/img/Water_002_OCC.jpg");
+const waterBaseColor = textureLoader.load("img/Water_002_COLOR.jpg");
+const waterNormalMap = textureLoader.load("img/Water_002_NORM.jpg");
+const waterHeightMap = textureLoader.load("img/Water_002_DISP.png");
+const waterRoughness = textureLoader.load("img/Water_002_ROUGH.jpg");
+const waterAmbientOcclusion = textureLoader.load("img/Water_002_OCC.jpg");
 
 // PLANE
 const geometry = new THREE.SphereBufferGeometry(3, 128, 128);
