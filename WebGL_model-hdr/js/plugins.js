@@ -76,7 +76,7 @@ const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath( 'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/js/libs/draco/' );
 loader.setDRACOLoader( dracoLoader );
 
-loader.load('./img/cool-design.glb', handle_load);
+loader.load('./img/Cool-design.glb', handle_load);
 
 let mesh;
 
