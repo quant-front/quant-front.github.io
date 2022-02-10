@@ -41,7 +41,7 @@ scene.add(light);
 let controls = new  OrbitControls(camera,renderer.domElement);
 let geometry = new THREE.IcosahedronGeometry(30, 5);
 let material = new THREE.MeshStandardMaterial({ color: "#444", transparent: true, side: THREE.DoubleSide, alphaTest: 0.5, opacity: 1, roughness: 1 });
-let sprite = new THREE.TextureLoader().load('../assets/img/out-img.png');
+let sprite = new THREE.TextureLoader().load('img/out-img.png');
 material.alphaMap = sprite;
 material.alphaMap.magFilter = THREE.NearestFilter;
 material.alphaMap.wrapT = THREE.RepeatWrapping;
