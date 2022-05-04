@@ -5,6 +5,9 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
+// scene.background = new THREE.Color( 0xefd1b5 );
+// scene.fog = new THREE.FogExp2( 0xefd1b5, 0.0025 );
+
 let renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor(0x202020);
@@ -43,20 +46,23 @@ function setOpacity( obj, alphaTest ) {
           obj.material.alphaTest = alphaTest ;
      }
 }
+let start;
+const manager = new THREE.LoadingManager();
+const loader = new GLTFLoader(manager);
 
-let loader = new GLTFLoader();
+// let loader = new GLTFLoader();
 loader.load('img/1scene.gltf', handle_load);
+manager.onLoad = function ( ) {
+start = true;
+};
 
 let car;
-let speed = 0;
 let myMaterial;
 myMaterial = new THREE.MeshMatcapMaterial({
      matcap:new  THREE.TextureLoader().load('../assets/img/green.jpg'),
      side: THREE.DoubleSide,
      alphaMap:new  THREE.TextureLoader().load('../assets/img/bg-2.png'),
      alphaTest:1,
-     // transparent:true,
-     // opacity:1
 });
 
 function handle_load( object) {
@@ -80,15 +86,18 @@ scene.add(myGroup);
 camera.updateProjectionMatrix();
 const clock = new THREE.Clock();
 
-camera.position.set(0,2,10);
+camera.position.set(0,3,7);
 
 let opsSpeed = 0.0050;
 const animate = function () {
      requestAnimationFrame( animate );
      camera.updateProjectionMatrix();
      controls.update();
-     setOpacity( myGroup, ops );
-     ops -= opsSpeed;
+     if (start){
+          setOpacity( myGroup, ops );
+          ops -= opsSpeed;
+     }
+
      // console.log(ops);
      // if (ops <= 0) {
      //      ops = 0;
