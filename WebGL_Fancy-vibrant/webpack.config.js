@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
      mode: "development",
-     entry:'./assets/js/plugins.js',
+     entry:'./assets/js/shader.js',
      output: {
           filename: "bundle.js",
           path: path.resolve(__dirname, "dist")

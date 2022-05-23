@@ -30,25 +30,9 @@ import  vertexShader from '../shaders/vertex.glsl';
 let controls = new  OrbitControls(camera,renderer.domElement);
 
 
-
-
-const geometry = new THREE.BoxGeometry( 2,2 ,2);
-// const material = new  THREE.MeshNormalMaterial({wireframe: true});
-const material = new  THREE.ShaderMaterial({
-          fragmentShader,
-          vertexShader,
-          uniforms: {
-            time: { value: 0}
-          },
-     });
-const mesh = new THREE.Mesh(geometry,material);
-// scene.add(mesh);
-
-
-
 const loader = new GLTFLoader();
 
-loader.load('img/1/scene.gltf', handle_load);
+loader.load('img/1/model.glb', handle_load);
 
 let Model;
 let myMaterial;
