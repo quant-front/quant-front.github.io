@@ -1,0 +1,463 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 2068,
+      "max": [
+        1.6254711151123047,
+        2.530343532562256,
+        1.4530155658721924
+      ],
+      "min": [
+        -1.6254711151123047,
+        -2.530343532562256,
+        -1.4530155658721924
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 24816,
+      "componentType": 5126,
+      "count": 2068,
+      "max": [
+        0.999633252620697,
+        0.9999698996543884,
+        0.999605119228363
+      ],
+      "min": [
+        -0.9999046325683594,
+        -0.999239981174469,
+        -0.9996803998947144
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 2068,
+      "max": [
+        0.9995220899581909,
+        0.7570804953575134,
+        0.9999383091926575,
+        1.0
+      ],
+      "min": [
+        -0.9999734163284302,
+        -0.8734410405158997,
+        -0.9999794363975525,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 2068,
+      "max": [
+        0.9919210076332092,
+        0.992409348487854
+      ],
+      "min": [
+        0.008078977465629578,
+        0.007590672001242638
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 10596,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 49632,
+      "componentType": 5126,
+      "count": 7064,
+      "max": [
+        1.2448177337646484,
+        2.157607078552246,
+        1.041341781616211
+      ],
+      "min": [
+        -1.1960868835449219,
+        -2.113713264465332,
+        -1.0360891819000244
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 134400,
+      "componentType": 5126,
+      "count": 7064,
+      "max": [
+        0.9999674558639526,
+        0.9999327659606934,
+        0.9998826384544373
+      ],
+      "min": [
+        -0.9999125003814697,
+        -0.9996721148490906,
+        -0.9993440508842468
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 16544,
+      "componentType": 5126,
+      "count": 7064,
+      "max": [
+        0.991919994354248,
+        0.9923999905586243
+      ],
+      "min": [
+        0.008070000447332859,
+        0.0075900000520050526
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 42384,
+      "componentType": 5125,
+      "count": 10596,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 124,
+      "max": [
+        4.166666507720947
+      ],
+      "min": [
+        0.0416666679084301
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 124,
+      "max": [
+        8.335371316010282e-17,
+        0.9999949932098389,
+        8.335371316010282e-17,
+        1.0
+      ],
+      "min": [
+        -8.657718306766276e-17,
+        -0.8596091866493225,
+        -8.657718306766276e-17,
+        -0.48896729946136475
+      ],
+      "type": "VEC4"
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 8,
+            "path": "rotation"
+          }
+        }
+      ],
+      "name": "Turntable",
+      "samplers": [
+        {
+          "input": 9,
+          "interpolation": "LINEAR",
+          "output": 10
+        }
+      ]
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Austin Hicks (https://sketchfab.com/AustinHicks)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/crystal-test-01-47b6b8030c6b41538ef260914d6a2a9e",
+      "title": "Crystal Test 01"
+    },
+    "generator": "Sketchfab-12.66.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 84768,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 73056,
+      "byteOffset": 84768,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 219168,
+      "byteOffset": 157824,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 33088,
+      "byteOffset": 376992,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 496,
+      "byteOffset": 410080,
+      "name": "floatBufferViews"
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1984,
+      "byteOffset": 410576,
+      "byteStride": 16,
+      "name": "floatBufferViews"
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 412560,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_transmission"
+  ],
+  "images": [
+    {
+      "uri": "textures/Crystal_Outer_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_transmission": {
+          "transmissionFactor": 1.0
+        }
+      },
+      "name": "Crystal_Outer",
+      "normalTexture": {
+        "index": 0,
+        "scale": 0.1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          0.25
+        ],
+        "roughnessFactor": 0.1
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "name": "Crystal_Core",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.1941319827,
+          0.0,
+          1.0
+        ],
+        "roughnessFactor": 0.25
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "polySurface7_Crystal_Outer_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "polySurface7_Crystal_Core_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TEXCOORD_0": 7
+          },
+          "indices": 8,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "c9a1db5bdff441dba445ef966db866a0.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "Object_2"
+    },
+    {
+      "children": [
+        4,
+        6,
+        8
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5
+      ],
+      "name": "polySurface6",
+      "translation": [
+        -19.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "transform2"
+    },
+    {
+      "children": [
+        7
+      ],
+      "name": "Crystal_02:polySurface6"
+    },
+    {
+      "name": "transform1"
+    },
+    {
+      "children": [
+        9,
+        10
+      ],
+      "name": "polySurface7",
+      "rotation": [
+        0.0,
+        -1.2246468525851679e-16,
+        0.0,
+        1.0
+      ],
+      "translation": [
+        -19.676069259643555,
+        3.2012476921081543,
+        -0.01030510663986206
+      ]
+    },
+    {
+      "mesh": 0,
+      "name": "polySurface7_Crystal_Outer_0"
+    },
+    {
+      "mesh": 1,
+      "name": "polySurface7_Crystal_Core_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}
