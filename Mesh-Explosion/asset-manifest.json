@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Mesh-Explosion/static/css/main.f855e6bc.css",
+    "main.js": "/Mesh-Explosion/static/js/main.55725809.js",
+    "static/js/453.e08212b9.chunk.js": "/Mesh-Explosion/static/js/453.e08212b9.chunk.js",
+    "index.html": "/Mesh-Explosion/index.html",
+    "main.f855e6bc.css.map": "/Mesh-Explosion/static/css/main.f855e6bc.css.map",
+    "main.55725809.js.map": "/Mesh-Explosion/static/js/main.55725809.js.map",
+    "453.e08212b9.chunk.js.map": "/Mesh-Explosion/static/js/453.e08212b9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.55725809.js"
+  ]
+}
